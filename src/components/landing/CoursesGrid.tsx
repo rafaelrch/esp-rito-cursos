@@ -1,26 +1,34 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 
 const courses = [
   {
-    title: "Formação em Psicoterapia do Espírito",
+    title: "O Campo Pessoal na Psicoterapia",
     description: "Uma formação inédita que integra psicologia profunda e espiritualidade, preparando profissionais para uma atuação terapêutica diferenciada.",
     image: "https://picsum.photos/seed/psico1/600/400",
+    startDate: "2 de Março",
+    enrollUrl: "https://institutodoespiritoan.eadplataforma.app/course/psicologia-do-espirito-e-alquimia-65b9449027030/d09xqwml4y0n",
   },
   {
-    title: "Curso de Teoria em Psicologia do Espírito",
-    description: "Fundamentos teóricos da Psicologia do Espírito com ênfase nos processos de individuação e evolução da consciência.",
+    title: "Desfazendo-se de Culpas e Alterando Predisposições",
+    description: "Compreenda os mecanismos da culpa e aprenda a transformar predisposições que limitam seu desenvolvimento pessoal e espiritual.",
     image: "https://picsum.photos/seed/psico2/600/400",
+    startDate: "3 de Março",
+    enrollUrl: "https://institutodoespiritoan.eadplataforma.app/course/desfazendo-se-de-culpas-e-alterando-predisposicoes-65b94b537e4a7/thg8mbqzp1md",
   },
   {
-    title: "Curso de Fundamentos da Psicologia do Espírito",
-    description: "Introdução aos conceitos essenciais que fundamentam a compreensão psicológica do espírito humano e suas relações.",
+    title: "O I Ching e o Campo Pessoal",
+    description: "Estudo do I Ching como ferramenta de autoconhecimento e diálogo interior sob a perspectiva da Psicologia do Espírito.",
     image: "https://picsum.photos/seed/psico3/600/400",
+    startDate: "9 de Março",
+    enrollUrl: "https://institutodoespiritoan.eadplataforma.app/course/o-i-ching-e-o-campo-pessoal-68e2a370a8004/yuc0ai7talzi",
   },
   {
-    title: "Curso de Mitologia segundo a Psicologia do Espírito",
-    description: "Estudo dos mitos e arquétipos sob a perspectiva da Psicologia do Espírito, revelando padrões universais da psique.",
+    title: "Vivenciando Jung: conceitos fundamentais aplicados a jornada interior",
+    description: "Conceitos fundamentais de Jung aplicados à prática da jornada interior e ao processo de individuação.",
     image: "https://picsum.photos/seed/psico4/600/400",
+    startDate: "11 de Março",
+    enrollUrl: "https://institutodoespiritoan.eadplataforma.app/course/vivenciando-jung-conceitos-fundamentais-aplicados-a-jornada-interior-6/qktu0mlwsvoz",
   },
 ];
 
@@ -60,11 +68,16 @@ export function CoursesGrid() {
                 <p className="body-serif text-base text-muted-foreground">
                   {course.description}
                 </p>
+                <p className="flex items-center gap-2 font-heading text-xs uppercase tracking-wider text-muted-foreground">
+                  <Calendar size={14} /> Início: {course.startDate}
+                </p>
                 <a
-                  href="#formacao"
-                  className="inline-flex items-center gap-2 font-heading text-xs uppercase tracking-wider text-primary hover:gap-3 transition-all duration-300"
+                  href={course.enrollUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 btn-primary text-xs mt-2"
                 >
-                  Saiba mais <ArrowRight size={14} />
+                  Inscreva-se <ArrowRight size={14} />
                 </a>
               </div>
             </div>
