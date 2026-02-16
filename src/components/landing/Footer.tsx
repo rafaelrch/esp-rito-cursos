@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -57,22 +57,13 @@ export function Footer() {
           <h4 className="font-heading font-bold text-sm uppercase tracking-wider">Redes Sociais</h4>
           <div className="flex gap-4">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/institutodoespiritoan/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
               aria-label="Instagram"
             >
               <Instagram size={18} />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
-              aria-label="Facebook"
-            >
-              <Facebook size={18} />
             </a>
           </div>
         </div>
