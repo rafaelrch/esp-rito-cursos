@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logoInstituto from "@/assets/logo-instituto.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -16,8 +17,8 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container-wide flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16 md:h-20">
         {/* Logo */}
-        <a href="#home" className="font-heading font-bold text-primary text-sm md:text-base tracking-wide">
-          Instituto do Espírito A.N.
+        <a href="#home" className="flex-shrink-0">
+          <img src={logoInstituto} alt="Instituto do Espírito A.N." className="h-10 md:h-14 w-auto" />
         </a>
 
         {/* Desktop Nav */}
