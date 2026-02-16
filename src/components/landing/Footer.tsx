@@ -57,7 +57,7 @@ export function Footer() {
           <h4 className="font-heading font-bold text-sm uppercase tracking-wider">Redes Sociais</h4>
           <div className="flex gap-4">
             <a
-              href="https://instagram.com/institutodoespiritoan"
+              href="https://www.instagram.com/institutodoespiritoan/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
