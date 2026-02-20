@@ -72,4 +72,45 @@ VITE_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/SUA_ID_DA_IMPLANTACAO/
 
 3. Reinicie o servidor de desenvolvimento (`npm run dev`) para carregar a variável.
 
-Depois disso, ao enviar o formulário no site, uma nova linha será adicionada na planilha com NOME, EMAIL, TELEFONE e CURSO.
+## 5. Site no ar (produção) — importante
+
+O arquivo `.env` **não** vai para o repositório (está no `.gitignore`). Por isso, quando o site é publicado (Vercel, Netlify, Lovable, etc.), o build roda no servidor deles **sem** a variável `VITE_GOOGLE_SCRIPT_URL`. Resultado: o formulário não envia nada para a planilha, só redireciona para a página de obrigado.
+
+**O que fazer:** configurar a mesma variável no painel do serviço onde o site está hospedado:
+
+1. Abra o painel do seu provedor (Vercel, Netlify, Lovable, etc.).
+2. Vá em **Settings** / **Configurações** do projeto → **Environment Variables** / **Variáveis de ambiente**.
+3. Crie uma variável:
+   - **Nome:** `VITE_GOOGLE_SCRIPT_URL`
+   - **Valor:** `https://script.google.com/macros/s/SUA_ID/exec` (a URL do seu Apps Script).
+4. Faça um **novo deploy** (Redeploy / Build again). As variáveis do Vite são gravadas no build; sem novo deploy, a URL não entra no site no ar.
+
+Depois disso, ao enviar o formulário no site publicado, uma nova linha será adicionada na planilha com NOME, EMAIL, TELEFONE e CURSO.
+
+---
+
+## 6. Troubleshooting (Vercel — dados não chegam na planilha)
+
+### Conferir variável no Vercel
+
+1. **Vercel** → projeto **institutodoespiritoan** → **Settings** → **Environment Variables**.
+2. Deve existir:
+   - **Key:** exatamente `VITE_GOOGLE_SCRIPT_URL` (tudo em maiúsculas, com os underscores).
+   - **Value:** a URL completa, ex.: `https://script.google.com/macros/s/AKfycby.../exec`.
+   - **Environment:** marque **Production** (e, se quiser testar em preview, **Preview**).
+3. Salve e vá em **Deployments** → no último deploy, menu (⋯) → **Redeploy**. Aguarde o build terminar.
+
+### Testar se a URL está no build
+
+1. Abra o site no ar (ex.: `institutodoespiritoan.vercel.app`) em uma aba anônima (para evitar cache).
+2. Abra o **Console** do navegador (F12 → aba Console).
+3. Preencha e envie o formulário.
+4. Se aparecer a mensagem *"VITE_GOOGLE_SCRIPT_URL não está definida..."* no console, a variável **não** entrou no build. Volte ao Vercel, confira o nome da variável e o ambiente, e faça um **Redeploy** de novo.
+
+### Ver se o Google recebeu o envio
+
+1. Abra a planilha no Google Sheets → **Extensões** → **Apps Script**.
+2. No Apps Script: **Execuções** (ícone de relógio no menu lateral esquerdo).
+3. Envie um formulário no site e, em seguida, atualize a lista de execuções no Apps Script.
+4. Se aparecer uma execução de `doPost` com status **Concluído**, o Google recebeu o POST. Se a planilha não tiver a linha nova, o script pode estar ligado a outra planilha ou à primeira aba errada — o script usa a **primeira aba** da planilha onde ele foi criado. Confirme que o script foi criado em **Extensões → Apps Script** a partir da planilha "INSTITUTO DO ESPÍRITO" e que a aba onde estão NOME, EMAIL, TELEFONE, CURSO é a primeira aba.
+5. Se **não** aparecer nenhuma execução ao enviar o formulário, o POST não está chegando ao script (a URL no site pode estar errada ou a variável ainda não está no build).

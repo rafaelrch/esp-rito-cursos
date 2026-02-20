@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/landing/Navbar";
 import { Hero } from "@/components/landing/Hero";
+import { FormSection } from "@/components/landing/FormSection";
 import { CourseBanner } from "@/components/landing/CourseBanner";
 import { SkillsSection } from "@/components/landing/SkillsSection";
 import { CoursesGrid } from "@/components/landing/CoursesGrid";
@@ -14,6 +15,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <FormSection />
         <CourseBanner />
         <SkillsSection />
         <CoursesGrid />
