@@ -4,10 +4,10 @@ import logoInstituto from "@/assets/logo-instituto.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "O Instituto", href: "#instituto" },
-  { label: "Psicologia do Espírito", href: "#skills" },
-  { label: "Formação em Psicoterapia do Espírito", href: "#formacao" },
-  { label: "Cursos 2026", href: "#cursos" },
+  { label: "O Instituto", href: "#home" },
+  { label: "Cursos", href: "#cursos" },
+  { label: "Formação", href: "#formacao" },
+  { label: "Inscrições", href: "#inscricao" },
 ];
 
 export function Navbar() {

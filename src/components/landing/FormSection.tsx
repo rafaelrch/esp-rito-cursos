@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
-import heroFormacao from "@/assets/hero-formacao.png";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { submitToGoogleSheet } from "@/lib/googleSheet";
 import { Button } from "@/components/ui/button";
@@ -83,21 +82,19 @@ export function FormSection() {
     <section id="inscricao" className="section-padding bg-off-white">
       <div
         ref={ref}
-        className={`container-wide grid md:grid-cols-2 gap-12 lg:gap-16 items-center transition-all duration-700 ${
+        className={`container-wide max-w-2xl mx-auto text-center transition-all duration-700 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        {/* Coluna esquerda: título + formulário */}
-        <div className="max-w-xl">
-          <h2 className="heading-uppercase text-2xl md:text-3xl text-primary mb-4">
-            Receba informações e entre no grupo
-          </h2>
-          <p className="body-serif text-muted-foreground mb-8">
-            Preencha o formulário para receber informações sobre nossos cursos e entrar no grupo do WhatsApp.
-          </p>
+        <h2 className="heading-uppercase text-2xl md:text-4xl text-primary mb-4">
+          Receba informações e entre no grupo
+        </h2>
+        <p className="body-serif text-muted-foreground mb-10 text-lg">
+          Preencha o formulário para receber informações sobre nossos cursos e entrar no grupo do WhatsApp.
+        </p>
 
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 text-left">
               <FormField
                 control={form.control}
                 name="nome"
@@ -166,19 +163,6 @@ export function FormSection() {
               </Button>
             </form>
           </Form>
-        </div>
-
-        {/* Coluna direita: imagem */}
-        <div className="relative flex justify-center order-first md:order-none">
-          <div className="relative w-full max-w-md">
-            <img
-              src={heroFormacao}
-              alt="Formação no Instituto do Espírito"
-              className="w-full h-auto rounded-sm shadow-xl object-cover aspect-[4/5]"
-              loading="lazy"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );

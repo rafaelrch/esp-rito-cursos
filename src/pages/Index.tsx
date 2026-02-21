@@ -1,10 +1,9 @@
 import { Navbar } from "@/components/landing/Navbar";
 import { Hero } from "@/components/landing/Hero";
-import { FormSection } from "@/components/landing/FormSection";
-import { CourseBanner } from "@/components/landing/CourseBanner";
-import { SkillsSection } from "@/components/landing/SkillsSection";
+import { IntroCall } from "@/components/landing/IntroCall";
 import { CoursesGrid } from "@/components/landing/CoursesGrid";
-import { BlogSection } from "@/components/landing/BlogSection";
+import { CourseBanner } from "@/components/landing/CourseBanner";
+import { FormSection } from "@/components/landing/FormSection";
 import { EventBanner } from "@/components/landing/EventBanner";
 import { Footer } from "@/components/landing/Footer";
 import { WhatsAppButton } from "@/components/landing/WhatsAppButton";
@@ -15,11 +14,10 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <FormSection />
-        <CourseBanner />
-        <SkillsSection />
+        <IntroCall />
         <CoursesGrid />
-        <BlogSection />
+        <CourseBanner />
+        <FormSection />
         <EventBanner />
       </main>
       <Footer />

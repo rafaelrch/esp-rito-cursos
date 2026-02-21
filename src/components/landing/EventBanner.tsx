@@ -1,38 +1,30 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ArrowRight } from "lucide-react";
 
 export function EventBanner() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-primary">
       <div
         ref={ref}
-        className={`container-wide transition-all duration-700 ${
+        className={`container-wide text-center transition-all duration-700 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <div className="flex flex-col md:flex-row items-center gap-6 border border-border rounded-sm p-6 md:p-8 shadow-sm">
-          <img
-            src="https://picsum.photos/seed/evento1/200/200"
-            alt="Aula inaugural"
-            className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-sm flex-shrink-0"
-            loading="lazy"
-          />
-          <div className="space-y-3 text-center md:text-left">
-            <h3 className="heading-uppercase text-lg md:text-xl text-primary">
-              Aula Inaugural Formação em Psicoterapia do Espírito
-            </h3>
-            <p className="body-serif text-muted-foreground text-base">
-              Não perca a oportunidade de ampliar suas habilidades psicoterapêuticas com esta formação inédita.
-            </p>
-            <a
-              href="#formacao"
-              className="inline-flex items-center gap-1 font-heading text-xs uppercase tracking-wider text-primary hover:text-secondary transition-colors"
-            >
-              saiba mais &gt;&gt;
-            </a>
-          </div>
-        </div>
+        <h2 className="heading-uppercase text-2xl md:text-3xl text-primary-foreground mb-3">
+          Inscreva-se nos nossos cursos
+        </h2>
+        <p className="body-serif text-primary-foreground/90 text-lg max-w-2xl mx-auto mb-8">
+          Escolha um curso, preencha o formulário e receba todas as informações para começar.
+        </p>
+        <a
+          href="#inscricao"
+          className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-heading font-semibold px-8 py-4 rounded-md uppercase tracking-wider hover:opacity-90 transition-opacity"
+        >
+          Fazer inscrição
+          <ArrowRight size={20} />
+        </a>
       </div>
     </section>
   );

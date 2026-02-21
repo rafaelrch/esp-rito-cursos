@@ -28,10 +28,10 @@ export function CourseBanner() {
           Formação em Psicoterapia do Espírito
         </h2>
         <a
-          href="#cursos"
+          href="#inscricao"
           className="inline-flex items-center gap-2 font-heading text-sm uppercase tracking-wider border-b-2 border-primary-foreground pb-1 hover:gap-4 transition-all duration-300"
         >
-          Saiba mais <ArrowRight size={18} />
+          Saiba mais e inscreva-se <ArrowRight size={18} />
         </a>
       </div>
     </section>
